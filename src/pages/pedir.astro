@@ -1,6 +1,5 @@
 ---
-import { empanadas } from "../conts.ts";
-import { Card } from "../components/Card.tsx";
+import { Empanadas } from "../components/Empandas.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -9,24 +8,14 @@ import Layout from "../layouts/Layout.astro";
     <h1>Quieres realizar un pedido?</h1>
     <p>
       Los pedidos se toman de a media docena o docena,
-      <b>no se venden empanadas individuales</b>, 
-      por lo que el contador es de a media docena o docena.
+      <strong>no se venden empanadas individuales</strong>, por lo que el
+      contador es de a media docena o docena.
     </p>
     <p style={{ marginTop: "10px", marginBottom: "20px" }}>
       Estas son nuestras variedades:
     </p>
     <div>
-      {
-        empanadas.map((empanada) => {
-          return (
-            <Card
-              title={empanada.title}
-              stock={empanada.stock}
-              option={empanada.option}
-            />
-          );
-        })
-      }
+      <Empanadas client:visible />
     </div>
   </main>
 </Layout>
