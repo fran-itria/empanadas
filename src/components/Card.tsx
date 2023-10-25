@@ -1,34 +1,11 @@
-import { add, priceDoc, priceMed, substract } from "../conts";
+import { priceDoc, priceMed } from "../conts";
 import { useState } from "react";
 import style from "./Card.module.css"
+import type { propsCard } from "../types";
+import { addTotal, substractTotal } from "../services/addSubstract";
 
-type props = {
-  title: string;
-  stock: boolean;
-  option?: string;
-  setOrder: React.Dispatch<React.SetStateAction<{
-    'Carne salada': number;
-    'Carne dulce': number;
-    Pollo: number;
-    'Jamon y queso': number;
-    'Cebolla y queso': number;
-    Verdura: number;
-  }>>
-  setPriceTotal: React.Dispatch<React.SetStateAction<number>>
-};
-
-export function Card({ title, stock, option, setOrder, setPriceTotal }: props) {
+export function Card({ title, stock, option, setOrder, setPriceTotal }: propsCard) {
   const [total, setTotal] = useState<number>(0);
-  const addTotal = () => {
-    setTotal((total: number) => total + 1);
-    setOrder(order => { return { ...order, [title]: total + 1 } })
-    setPriceTotal(price => price += priceDoc)
-  };
-  const substractTotal = () => {
-    setTotal((total: number) => total - 1);
-    setOrder(order => { return { ...order, [title]: total - 1 } })
-    setPriceTotal(price => price -= priceDoc)
-  };
   return (
     <div className={style.card}>
       <h2 className={style.title}>{title}</h2>
@@ -37,9 +14,9 @@ export function Card({ title, stock, option, setOrder, setPriceTotal }: props) {
         <p className={style.price}>1/2: <b>${priceMed}</b></p>
       </div>
       <div className={style.buttons}>
-        <button onClick={substractTotal} className={style.button}> - </button>
+        <button onClick={() => substractTotal({ setOrder, setPriceTotal, setTotal, title, total })} className={style.button}> - </button>
         <p className={style.total}>{total}</p>
-        <button onClick={addTotal} className={style.button}> + </button>
+        <button onClick={() => addTotal({ setOrder, setPriceTotal, setTotal, title, total })} className={style.button}> + </button>
       </div>
     </div>
   )

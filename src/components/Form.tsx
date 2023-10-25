@@ -1,73 +1,88 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './Form.module.css'
 import { inputsNames } from "../conts";
+import type { Inputs, propsForm } from '../types';
+import { changeInputs } from '../services/changeInputs';
+import { getPrice } from '../services/getPrice';
+import { whatssapMessage } from '../services/whattsapMessage';
 
-type props = {
-    orderArray: string[] | undefined
-}
-type Inputs = {
-    name: string
-    surname: string
-    direction?: string
-}
-export function Form({ orderArray }: props) {
+export function Form({ orderArray }: propsForm) {
     const [delivery, setDelivery] = useState<boolean>(false)
-    const [inputs, setinputs] = useState<Inputs>({
+    const [cash, setCash] = useState<boolean>(false)
+    const [inputs, setInputs] = useState<Inputs>({
         name: '',
         surname: '',
-        direction: ''
+        delivery: '',
+        direction: '',
+        payment: '',
+        cash: '0'
     })
-    const changeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const name = event.currentTarget.name
-        const value = event.currentTarget.value
-        setinputs(inputs => { return { ...inputs, [name]: value } })
-    }
-    const price: (number | undefined)[] | undefined = orderArray?.map((order) => {
-        if (order.length > 0) {
-            const text = order.split("=");
-            const title = text[0];
-            const amount: number = Number(text[1]);
-            if (amount > 0 && title == 'price')
-                return (
-                    amount
-                );
-        }
-    })
+    const price = getPrice(orderArray)
     return (
         <>
             <form className={style.form}>
                 <label className={style.label}>
                     Nombre:
-                    <input name={inputsNames.name} type="text" onChange={(event) => changeInputs(event)} />
+                    <input name={inputsNames.name} type="text" onChange={(event) => changeInputs({ event, setInputs })} />
                 </label>
                 <label className={style.label}>
                     Apellido:
-                    <input name={inputsNames.surname} type="text" onChange={(event) => changeInputs(event)} />
+                    <input name={inputsNames.surname} type="text" onChange={(event) => changeInputs({ event, setInputs })} />
                 </label>
                 <label className={style.label}>
-                    Forma de entrega:
+                    Entrega:
                     <input
                         name={inputsNames.delivery}
                         type='checkbox'
+                        value='A domicilio'
                         onClick={() => setDelivery(delivery => !delivery)}
+                        onChange={(event) => changeInputs({ event, setInputs })}
                     />
                     A domicilio
                     <input
-                        name={inputsNames.retire}
+                        name={inputsNames.delivery}
                         type='checkbox'
-                        onClick={() => setDelivery(delivery => !delivery)}
+                        value='Retirar'
+                        onChange={(event) => changeInputs({ event, setInputs })}
                     />
                     Retirar
                 </label>
                 {delivery ?
                     <label className={style.label}>
                         Direccion:
-                        <input name={inputsNames.direction} type="text" />
+                        <input name={inputsNames.direction} type="text" onChange={(event) => changeInputs({ event, setInputs })} />
                     </label> : <></>
                 }
-
+                <label>
+                    Pago:
+                    <input
+                        type='checkbox'
+                        name={inputsNames.payment}
+                        value='Efectivo'
+                        onClick={() => setCash(cash => !cash)}
+                        onChange={(event) => changeInputs({ event, setInputs })}
+                    />
+                    Efectivo
+                    <input
+                        type='checkbox'
+                        name={inputsNames.payment}
+                        value='Transferencia'
+                        onChange={(event) => changeInputs({ event, setInputs })}
+                    />
+                    Transferencia
+                </label>
+                {cash ?
+                    <label>
+                        Monto a pagar:
+                        <input
+                            type='number'
+                            name={inputsNames.cash}
+                            onChange={(event) => changeInputs({ event, setInputs })}
+                        />
+                    </label>
+                    : <></>}
             </form>
-            <p>Orden:</p>
+            <p>Pedido:</p>
             <ul>
                 {
                     orderArray?.map((order) => {
@@ -86,7 +101,9 @@ export function Form({ orderArray }: props) {
                 }
             </ul>
             <p>Total: ${price}</p>
-            <a href='https://wa.me/3434403870/?text=Hola%20soy...'>Confirmar pedido</a>
+            <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray, price })}`} target='_blank'>Confirmar pedido</a>
         </>
     )
 }
+
+// https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })} target='_blank'

@@ -1,17 +1,12 @@
 import { empanadas, initialOrder } from '../conts.ts'
-import { Card } from "../components/Card.tsx";
+import { Card } from "./Card.tsx";
 import { useState } from "react";
+import { transformObjectToString } from "../services/transformObjectToString.ts";
 
-export function Empanadas() {
+export function Order() {
     const [order, setOrder] = useState(initialOrder)
     const [priceTotal, setPriceTotal] = useState<number>(0)
     const [orderTextParam, setOrderTextParam] = useState<string>('')
-    const transformObjectToString = () => {
-        for (const [key, value] of Object.entries(order)) {
-            setOrderTextParam(orderTextParam => orderTextParam + `${key}=${value}-`)
-        }
-        setOrderTextParam(orderTextParam => orderTextParam + `price=${priceTotal}`)
-    }
     return (
         <>
             {
@@ -29,7 +24,7 @@ export function Empanadas() {
             }
             <a
                 href={`/confirm-order-${orderTextParam}`}
-                onClick={() => transformObjectToString()}
+                onClick={() => transformObjectToString({ order, setOrderTextParam, priceTotal })}
                 style={{ width: '200px' }}
             >
                 Confirmar
