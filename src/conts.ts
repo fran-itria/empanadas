@@ -25,3 +25,20 @@ export const images = [Empanadas1, Empanadas2, Empanadas3, Empanadas4]
 
 export const add = 'add'
 export const substract = 'substract'
+
+export const initialOrder = {
+    'Carne salada': 0,
+    'Carne dulce': 0,
+    'Pollo': 0,
+    'Jamon y queso': 0,
+    'Cebolla y queso': 0,
+    'Verdura': 0
+}
+
+export const inputsNames = {
+    name: 'name',
+    surname: 'surname',
+    direction: 'direction',
+    delivery: 'delivery',
+    retire: 'retire'
+}
