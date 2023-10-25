@@ -8,6 +8,7 @@
     background-color: rgb(255, 209, 149);
     border-bottom: solid 7px rgb(143, 81, 0);
     border-right: solid 7px rgb(143, 81, 0);
+    box-sizing: border-box;
 }
 
 .title {
