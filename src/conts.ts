@@ -1,9 +1,6 @@
-type Empanadas = {
-    title: string,
-    stock: boolean,
-    option?: string
-}
+import type { Empanadas } from "./types"
 
+// Empandas que se venden
 export const empanadas: Empanadas[] = [
     { title: 'Carne salada', stock: true },
     { title: 'Carne dulce', stock: true },
@@ -13,9 +10,11 @@ export const empanadas: Empanadas[] = [
     { title: 'Verdura', stock: true },
 ]
 
+// Precio por docena o 1/2 docena
 export const priceDoc: number = 2500
 export const priceMed: number = 2500 / 2
 
+// Imagenes de las empandas
 const Empanadas1 = 'public/images/Empanadas1.jpeg'
 const Empanadas2 = 'public/images/Empanadas2.jpeg'
 const Empanadas3 = 'public/images/Empanadas3.jpeg'
@@ -23,9 +22,11 @@ const Empanadas4 = 'public/images/Empanadas4.jpeg'
 
 export const images = [Empanadas1, Empanadas2, Empanadas3, Empanadas4]
 
+// Constantes para Card.tsx
 export const add = 'add'
 export const substract = 'substract'
 
+// Estado inicial del pedido de Empanadas.tsx
 export const initialOrder = {
     'Carne salada': 0,
     'Carne dulce': 0,
@@ -35,10 +36,12 @@ export const initialOrder = {
     'Verdura': 0
 }
 
+// Estado incial del formulario de Form.tsx
 export const inputsNames = {
     name: 'name',
     surname: 'surname',
     direction: 'direction',
     delivery: 'delivery',
-    retire: 'retire'
+    cash: 'cash',
+    payment: 'payment'
 }
