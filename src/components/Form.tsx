@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import style from './Form.module.css'
 import { inputsNames } from "../conts";
-import type { Inputs, propsForm } from '../types';
+import type { Inputs, errorsForm, propsForm } from '../types';
 import { changeInputs } from '../services/changeInputs';
 import { getPrice } from '../services/getPrice';
 import { whatssapMessage } from '../services/whattsapMessage';
@@ -15,19 +15,31 @@ export function Form({ orderArray }: propsForm) {
         delivery: '',
         direction: '',
         payment: '',
-        cash: '0'
+        cash: '0',
+        time: '0'
     })
+    const [errors, setErrors] = useState<errorsForm>({})
+    useEffect(() => console.log(errors), [errors])
+    useEffect(() => console.log(inputs), [inputs])
     const price = getPrice(orderArray)
     return (
         <>
             <form className={style.form}>
                 <label className={style.label}>
                     Nombre:
-                    <input name={inputsNames.name} type="text" onChange={(event) => changeInputs({ event, setInputs })} />
+                    <input
+                        name={inputsNames.name}
+                        type="text"
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })} />
+                    {Object.keys(errors).length > 0 && errors.name ? <strong>{errors.name}</strong> : <></>}
                 </label>
                 <label className={style.label}>
                     Apellido:
-                    <input name={inputsNames.surname} type="text" onChange={(event) => changeInputs({ event, setInputs })} />
+                    <input
+                        name={inputsNames.surname}
+                        type="text"
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })} />
+                    {Object.keys(errors).length > 0 && errors.surname ? <strong>{errors.surname}</strong> : <></>}
                 </label>
                 <label className={style.label}>
                     Entrega:
@@ -36,21 +48,26 @@ export function Form({ orderArray }: propsForm) {
                         type='checkbox'
                         value='A domicilio'
                         onClick={() => setDelivery(delivery => !delivery)}
-                        onChange={(event) => changeInputs({ event, setInputs })}
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
                     A domicilio
                     <input
                         name={inputsNames.delivery}
                         type='checkbox'
                         value='Retirar'
-                        onChange={(event) => changeInputs({ event, setInputs })}
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
                     Retirar
+                    {Object.keys(errors).length > 0 && errors.delivery ? <strong>{errors.delivery}</strong> : <></>}
                 </label>
                 {delivery ?
                     <label className={style.label}>
                         Direccion:
-                        <input name={inputsNames.direction} type="text" onChange={(event) => changeInputs({ event, setInputs })} />
+                        <input
+                            name={inputsNames.direction}
+                            type="text"
+                            onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })} />
+                        {Object.keys(errors).length > 0 && errors.direction ? <strong>{errors.direction}</strong> : <></>}
                     </label> : <></>
                 }
                 <label>
@@ -60,16 +77,18 @@ export function Form({ orderArray }: propsForm) {
                         name={inputsNames.payment}
                         value='Efectivo'
                         onClick={() => setCash(cash => !cash)}
-                        onChange={(event) => changeInputs({ event, setInputs })}
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
+                        required
                     />
                     Efectivo
                     <input
                         type='checkbox'
                         name={inputsNames.payment}
                         value='Transferencia'
-                        onChange={(event) => changeInputs({ event, setInputs })}
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
                     Transferencia
+                    {Object.keys(errors).length > 0 && errors.payment ? <strong>{errors.payment}</strong> : <></>}
                 </label>
                 {cash ?
                     <label>
@@ -77,10 +96,19 @@ export function Form({ orderArray }: propsForm) {
                         <input
                             type='number'
                             name={inputsNames.cash}
-                            onChange={(event) => changeInputs({ event, setInputs })}
+                            onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                         />
+                        {Object.keys(errors).length > 0 && errors.cash ? <strong>{errors.cash}</strong> : <></>}
                     </label>
                     : <></>}
+                <label>
+                    Horario:
+                    <input
+                        type='time'
+                        name={inputsNames.time}
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })} />
+                    {Object.keys(errors).length > 0 && errors.time ? <strong>{errors.time}</strong> : <></>}
+                </label>
             </form>
             <p>Pedido:</p>
             <ul>
@@ -93,7 +121,7 @@ export function Form({ orderArray }: propsForm) {
                             if (amount > 0 && title != 'price')
                                 return (
                                     <li>
-                                        {title}: {amount} docenas
+                                        {title}: {amount > 1 ? `${amount} docenas` : `${amount} docena`}
                                     </li>
                                 );
                         }
@@ -105,5 +133,3 @@ export function Form({ orderArray }: propsForm) {
         </>
     )
 }
-
-// https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })} target='_blank'
