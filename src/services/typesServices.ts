@@ -1,4 +1,4 @@
-import type { Inputs, propsForm } from "../types";
+import type { Inputs, Price, errorsForm, propsForm } from "../types";
 
 export type propsTransformObject = {
     order: any,
@@ -22,8 +22,12 @@ export type porpsAddSubstract = {
 }
 
 export type ChangeInputs = {
+    price: Price
     event: React.ChangeEvent<HTMLInputElement>,
     setInputs: React.Dispatch<React.SetStateAction<Inputs>>
+    setErrors: React.Dispatch<React.SetStateAction<{}>>
+    errors: errorsForm
+    inputs: Inputs
 }
 
 export type whattssapMessagesProps = {
@@ -31,3 +35,10 @@ export type whattssapMessagesProps = {
     orderArray: string[] | undefined
     price: (number | undefined)[] | undefined
 }
+
+export type validateErrorsProps = {
+    input: Inputs
+    setErrors: React.Dispatch<React.SetStateAction<errorsForm>>
+    price: Price
+}
+
