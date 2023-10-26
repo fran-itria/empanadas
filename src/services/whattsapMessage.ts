@@ -1,6 +1,6 @@
 import type { whattssapMessagesProps } from "./typesServices";
 
-export const whatssapMessage = ({ inputs, orderArray, price }: whattssapMessagesProps) => {
+export const whatssapMessage = ({ inputs, orderArray }: whattssapMessagesProps) => {
     const { name, surname, cash, delivery, payment, direction, time } = inputs
     const space = '%20'
     const line = '%0A'

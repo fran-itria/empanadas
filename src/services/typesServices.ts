@@ -1,4 +1,4 @@
-import type { Inputs, Price, errorsForm, propsForm } from "../types";
+import type { Inputs, Price, errorsForm } from "../types";
 
 export type propsTransformObject = {
     order: any,
@@ -33,7 +33,6 @@ export type ChangeInputs = {
 export type whattssapMessagesProps = {
     inputs: Inputs
     orderArray: string[] | undefined
-    price: (number | undefined)[] | undefined
 }
 
 export type validateErrorsProps = {

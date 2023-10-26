@@ -129,7 +129,7 @@ export function Form({ orderArray }: propsForm) {
                 }
             </ul>
             <p>Total: ${price}</p>
-            <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray, price })}`} target='_blank'>Confirmar pedido</a>
+            <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
         </>
     )
 }
