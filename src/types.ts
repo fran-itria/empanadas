@@ -32,5 +32,16 @@ export type Inputs = {
     direction?: string
     payment: string
     cash: string
+    time: string
 }
-export type Price = (number | undefined)[] | undefined
+export type Price = (string | undefined)[] | undefined
+
+export type errorsForm = {
+    name?: string
+    surname?: string
+    delivery?: string
+    direction?: string
+    payment?: string
+    cash?: string
+    time?: string
+}

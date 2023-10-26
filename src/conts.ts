@@ -43,5 +43,6 @@ export const inputsNames = {
     direction: 'direction',
     delivery: 'delivery',
     cash: 'cash',
-    payment: 'payment'
+    payment: 'payment',
+    time: 'time'
 }
