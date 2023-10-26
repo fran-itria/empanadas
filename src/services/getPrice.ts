@@ -1,7 +1,7 @@
 import type { Price } from "../types";
 
 export const getPrice = (orderArray: string[] | undefined): Price => {
-    return orderArray?.map((order) => {
+    return orderArray?.filter((order) => {
         if (order.length > 0) {
             const text = order.split("=");
             const title = text[0];
