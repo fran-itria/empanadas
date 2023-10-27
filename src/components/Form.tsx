@@ -6,6 +6,7 @@ import { changeInputs } from '../services/changeInputs';
 import { getPrice } from '../services/getPrice';
 import { whatssapMessage } from '../services/whattsapMessage';
 import { validateErrors } from '../services/validateErrors';
+import { checkedDeliveryInput, checkedPaymentInput } from '../services/checkedInputs';
 
 export function Form({ orderArray }: propsForm) {
     const [inputs, setInputs] = useState<Inputs>({
@@ -43,7 +44,7 @@ export function Form({ orderArray }: propsForm) {
                     Entrega:
                     <input
                         name={inputsNames.delivery}
-                        checked={!inputs.delivery ? false : inputs.delivery == inputDelyveryValues.search ? false : true}
+                        checked={checkedDeliveryInput(inputDelyveryValues.home, inputs)}
                         type='checkbox'
                         value={inputDelyveryValues.home}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
@@ -51,7 +52,7 @@ export function Form({ orderArray }: propsForm) {
                     A domicilio
                     <input
                         name={inputsNames.delivery}
-                        checked={!inputs.delivery ? false : inputs.delivery == inputDelyveryValues.home ? false : true}
+                        checked={checkedDeliveryInput(inputDelyveryValues.search, inputs)}
                         type='checkbox'
                         value={inputDelyveryValues.search}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
@@ -74,7 +75,8 @@ export function Form({ orderArray }: propsForm) {
                     <input
                         type='checkbox'
                         name={inputsNames.payment}
-                        checked={!inputs.payment ? false : inputs.payment == inputsPaymentValues.efective ? true : false}
+                        // checked={!inputs.payment ? false : inputs.payment == inputsPaymentValues.efective ? true : false}
+                        checked={checkedPaymentInput(inputsPaymentValues.efective, inputs)}
                         value={inputsPaymentValues.efective}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                         required
@@ -83,7 +85,8 @@ export function Form({ orderArray }: propsForm) {
                     <input
                         type='checkbox'
                         name={inputsNames.payment}
-                        checked={!inputs.payment ? false : inputs.payment == inputsPaymentValues.transfer ? true : false}
+                        // checked={!inputs.payment ? false : inputs.payment == inputsPaymentValues.transfer ? true : false}
+                        checked={checkedPaymentInput(inputsPaymentValues.transfer, inputs)}
                         value={inputsPaymentValues.transfer}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
