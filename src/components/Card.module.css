@@ -4,16 +4,62 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     background-color: rgb(255, 209, 149);
     border-bottom: solid 7px rgb(143, 81, 0);
     border-right: solid 7px rgb(143, 81, 0);
     box-sizing: border-box;
 }
 
+.notStock {
+    border: solid rgb(0, 0, 0) 5px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(255, 209, 149);
+    border-bottom: solid 7px rgb(143, 81, 0);
+    border-right: solid 7px rgb(143, 81, 0);
+    box-sizing: border-box;
+    position: relative;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.notStockText {
+    color: white;
+    font-weight: bold;
+    background-color: rgb(255, 137, 137);
+    width: 200px;
+    text-align: center;
+    rotate: -29.2deg;
+    position: absolute;
+}
+
+.box {
+    background-color: rgb(255, 137, 137);
+    width: 13px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+}
+
+.box2 {
+    background-color: rgb(255, 137, 137);
+    width: 13px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .title {
     margin-top: 10px;
     margin-bottom: 0;
+    width: 188px;
+    text-align: center;
 }
 
 .price {
@@ -21,18 +67,46 @@
     margin-top: 20px;
 }
 
-.buttons {
+/* .buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     width: 100px;
     height: 20px;
     margin-bottom: 20px;
+    width: 188px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: aqua;
+} */
+.doc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 20px;
+    /* margin-bottom: 20px; */
+    width: 188px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* background-color: aqua; */
 }
 
-.total {
-    font-size: 20px;
+.midle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 43px;
+    width: 100px;
+    height: 20px;
+    /* margin-bottom: 20px; */
+    width: 188px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* background-color: aqua; */
 }
 
 .button {
@@ -41,4 +115,16 @@
     text-align: center;
     border: none;
     font-size: 25px;
+    cursor: pointer;
+}
+
+.disbled {
+    height: fit-content;
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    font-size: 25px;
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
