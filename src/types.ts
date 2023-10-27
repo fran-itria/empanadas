@@ -21,7 +21,7 @@ export type propsCard = {
     setPriceTotal: React.Dispatch<React.SetStateAction<number>>
 };
 
-// Tipo para el state del form en Form.tsx
+// Tipo para el estado del formulario en Form.tsx
 export type propsForm = {
     orderArray: string[] | undefined
 }
@@ -36,6 +36,7 @@ export type Inputs = {
 }
 export type Price = number
 
+// Tipo para los errores del fomrulario en Form.tsx
 export type errorsForm = {
     name?: string
     surname?: string

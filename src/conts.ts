@@ -47,11 +47,13 @@ export const inputsNames = {
     time: 'time'
 }
 
+// Valores de los inputs de la forma de entrega
 export const inputDelyveryValues = {
     home: 'A domicilio',
     search: 'Retirar'
 }
 
+// Valores de los inputs de la forma de pago 
 export const inputsPaymentValues = {
     efective: 'Efectivo',
     transfer: 'Transferencia'
