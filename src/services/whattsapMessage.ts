@@ -14,7 +14,7 @@ export const whatssapMessage = ({ inputs, orderArray }: whattssapMessagesProps) 
         orderMessage += `
         - ${text}: ${number} ${number && Number(number) > 1 ? 'docenas' : 'docena'}${line}`
     })
-    const message = `Hola${space}buenas${line}Queria${space}realizar${space}un${space}pedido${space}para${space}las${space}${time}hs${space}a${space}nombre${space}de${space}${name} ${surname}${line}Pedido:${line}${orderMessage}Forma de entrega: ${delivery}${line}${direction ? `Direccion: ${direction}${line}` : ''}${line}Forma de pago: ${payment}${line}${Number(cash) > 0 ? `Monto de pago: ${cash}${line}` : ''}`
+    const message = `Hola${space}buenas${line}Queria${space}realizar${space}un${space}pedido${space}para${space}las${space}${time}hs${space}a${space}nombre${space}de${space}${name} ${surname}${line}Pedido:${line}${orderMessage}Forma de entrega: ${delivery}${line}${direction ? `Direccion: ${direction}` : ``}${line}Forma de pago: ${payment}${Number(cash) > 0 ? `${line}Monto de pago: ${cash}` : ''}`
 
     return message
 }
