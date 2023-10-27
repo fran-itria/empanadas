@@ -46,3 +46,13 @@ export const inputsNames = {
     payment: 'payment',
     time: 'time'
 }
+
+export const inputDelyveryValues = {
+    home: 'A domicilio',
+    search: 'Retirar'
+}
+
+export const inputsPaymentValues = {
+    efective: 'Efectivo',
+    transfer: 'Transferencia'
+}
