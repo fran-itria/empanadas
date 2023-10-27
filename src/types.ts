@@ -34,7 +34,7 @@ export type Inputs = {
     cash: string
     time: string
 }
-export type Price = (string | undefined)[] | undefined
+export type Price = number
 
 export type errorsForm = {
     name?: string
