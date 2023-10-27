@@ -1,23 +1,45 @@
 // Tipo para el arreglo de empanadas en const.tsx
 export type Empanadas = {
-    title: string,
+    title: titleKey,
     stock: boolean,
     option?: string
 }
 
 // Tipo para las props de Card.tsx
+export type SetOrder = React.Dispatch<React.SetStateAction<{
+    'Carne salada': {
+        doc: number;
+        half: number;
+    };
+    'Carne dulce': {
+        doc: number;
+        half: number;
+    };
+    Pollo: {
+        doc: number;
+        half: number;
+    };
+    'Jamon y queso': {
+        doc: number;
+        half: number;
+    };
+    'Cebolla y queso': {
+        doc: number;
+        half: number;
+    };
+    Verdura: {
+        doc: number;
+        half: number;
+    };
+}>>
+
+export type titleKey = "Carne salada" | "Carne dulce" | "Pollo" | "Jamon y queso" | "Cebolla y queso" | "Verdura"
+
 export type propsCard = {
-    title: string;
+    title: titleKey;
     stock: boolean;
     option?: string;
-    setOrder: React.Dispatch<React.SetStateAction<{
-        'Carne salada': number;
-        'Carne dulce': number;
-        Pollo: number;
-        'Jamon y queso': number;
-        'Cebolla y queso': number;
-        Verdura: number;
-    }>>
+    setOrder: SetOrder
     setPriceTotal: React.Dispatch<React.SetStateAction<number>>
 };
 
