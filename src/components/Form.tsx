@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import style from './Form.module.css'
-import { inputsNames } from "../conts";
+import { inputDelyveryValues, inputsNames, inputsPaymentValues } from "../conts";
 import type { Inputs, errorsForm, propsForm } from '../types';
 import { changeInputs } from '../services/changeInputs';
 import { getPrice } from '../services/getPrice';
 import { whatssapMessage } from '../services/whattsapMessage';
+import { validateErrors } from '../services/validateErrors';
 
 export function Form({ orderArray }: propsForm) {
-    const [delivery, setDelivery] = useState<boolean>(false)
-    const [cash, setCash] = useState<boolean>(false)
     const [inputs, setInputs] = useState<Inputs>({
         name: '',
         surname: '',
@@ -16,12 +15,11 @@ export function Form({ orderArray }: propsForm) {
         direction: '',
         payment: '',
         cash: '0',
-        time: '0'
+        time: ''
     })
     const [errors, setErrors] = useState<errorsForm>({})
-    useEffect(() => console.log(errors), [errors])
-    useEffect(() => console.log(inputs), [inputs])
-    const price = getPrice(orderArray)
+    const price = Number(getPrice(orderArray))
+    useEffect(() => { validateErrors({ input: inputs, setErrors, price }) }, [])
     return (
         <>
             <form className={style.form}>
@@ -45,22 +43,23 @@ export function Form({ orderArray }: propsForm) {
                     Entrega:
                     <input
                         name={inputsNames.delivery}
+                        checked={!inputs.delivery ? false : inputs.delivery == inputDelyveryValues.search ? false : true}
                         type='checkbox'
-                        value='A domicilio'
-                        onClick={() => setDelivery(delivery => !delivery)}
+                        value={inputDelyveryValues.home}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
                     A domicilio
                     <input
                         name={inputsNames.delivery}
+                        checked={!inputs.delivery ? false : inputs.delivery == inputDelyveryValues.home ? false : true}
                         type='checkbox'
-                        value='Retirar'
+                        value={inputDelyveryValues.search}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
                     Retirar
                     {Object.keys(errors).length > 0 && errors.delivery ? <strong>{errors.delivery}</strong> : <></>}
                 </label>
-                {delivery ?
+                {inputs.delivery == inputDelyveryValues.home ?
                     <label className={style.label}>
                         Direccion:
                         <input
@@ -75,8 +74,8 @@ export function Form({ orderArray }: propsForm) {
                     <input
                         type='checkbox'
                         name={inputsNames.payment}
-                        value='Efectivo'
-                        onClick={() => setCash(cash => !cash)}
+                        checked={!inputs.payment ? false : inputs.payment == inputsPaymentValues.efective ? true : false}
+                        value={inputsPaymentValues.efective}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                         required
                     />
@@ -84,13 +83,14 @@ export function Form({ orderArray }: propsForm) {
                     <input
                         type='checkbox'
                         name={inputsNames.payment}
-                        value='Transferencia'
+                        checked={!inputs.payment ? false : inputs.payment == inputsPaymentValues.transfer ? true : false}
+                        value={inputsPaymentValues.transfer}
                         onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
                     />
                     Transferencia
                     {Object.keys(errors).length > 0 && errors.payment ? <strong>{errors.payment}</strong> : <></>}
                 </label>
-                {cash ?
+                {inputs.payment == inputsPaymentValues.efective ?
                     <label>
                         Monto a pagar:
                         <input
@@ -106,7 +106,8 @@ export function Form({ orderArray }: propsForm) {
                     <input
                         type='time'
                         name={inputsNames.time}
-                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })} />
+                        onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
+                    />
                     {Object.keys(errors).length > 0 && errors.time ? <strong>{errors.time}</strong> : <></>}
                 </label>
             </form>
@@ -128,8 +129,12 @@ export function Form({ orderArray }: propsForm) {
                     })
                 }
             </ul>
-            <p>Total: ${price}</p>
-            <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
+            <p>Total: ${price ? price : <></>}</p>
+            {Object.keys(errors).length > 0 ?
+                <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
+                :
+                <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
+            }
         </>
     )
 }
