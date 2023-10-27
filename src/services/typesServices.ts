@@ -1,4 +1,4 @@
-import type { Inputs, Price, errorsForm } from "../types";
+import type { Inputs, Price, SetOrder, errorsForm, titleKey } from "../types";
 
 // Tipo para la funcion de transformar el objeto a string 
 export type propsTransformObject = {
@@ -8,19 +8,27 @@ export type propsTransformObject = {
 }
 
 // Tipo para las funciones de sumar y restar la cantidad de docenas a pedir
-export type porpsAddSubstract = {
-    setOrder: React.Dispatch<React.SetStateAction<{
-        'Carne salada': number;
-        'Carne dulce': number;
-        Pollo: number;
-        'Jamon y queso': number;
-        'Cebolla y queso': number;
-        Verdura: number;
-    }>>,
+export type basicProps = {
+    setOrder: SetOrder
     setPriceTotal: React.Dispatch<React.SetStateAction<number>>,
-    setTotal: React.Dispatch<React.SetStateAction<number>>
-    title: string,
+    title: titleKey,
+}
+export type propsAddSubstractTotal = {
+    basic: basicProps
     total: number
+    setTotal: React.Dispatch<React.SetStateAction<number>>
+}
+export type propsAddSubstractHalf = {
+    basic: basicProps
+    half: number
+    setHalf: React.Dispatch<React.SetStateAction<number>>
+}
+
+export type Order = {
+    title: {
+        doc: number
+        half: number
+    }
 }
 
 // Tipo para la funcion que escribe los inputs
