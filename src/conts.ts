@@ -4,8 +4,8 @@ import type { Empanadas } from "./types"
 export const empanadas: Empanadas[] = [
     { title: 'Carne salada', stock: true },
     { title: 'Carne dulce', stock: true },
-    { title: 'Pollo', stock: true },
-    { title: 'Jamon y queso', stock: true, option: 'Ricota' },
+    { title: 'Pollo', stock: false },
+    { title: 'Jamon y queso', stock: true },
     { title: 'Cebolla y queso', stock: true },
     { title: 'Verdura', stock: true },
 ]
@@ -28,12 +28,12 @@ export const substract = 'substract'
 
 // Estado inicial del pedido de Empanadas.tsx
 export const initialOrder = {
-    'Carne salada': 0,
-    'Carne dulce': 0,
-    'Pollo': 0,
-    'Jamon y queso': 0,
-    'Cebolla y queso': 0,
-    'Verdura': 0
+    'Carne salada': {doc: 0, half:0},
+    'Carne dulce': {doc: 0, half:0},
+    'Pollo': {doc: 0, half:0},
+    'Jamon y queso': {doc: 0, half:0},
+    'Cebolla y queso': {doc: 0, half:0},
+    'Verdura': {doc: 0, half:0}
 }
 
 // Estado incial del formulario de Form.tsx
