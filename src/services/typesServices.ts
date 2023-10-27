@@ -1,11 +1,13 @@
 import type { Inputs, Price, errorsForm } from "../types";
 
+// Tipo para la funcion de transformar el objeto a string 
 export type propsTransformObject = {
     order: any,
     setOrderTextParam: React.Dispatch<React.SetStateAction<string>>
     priceTotal: number
 }
 
+// Tipo para las funciones de sumar y restar la cantidad de docenas a pedir
 export type porpsAddSubstract = {
     setOrder: React.Dispatch<React.SetStateAction<{
         'Carne salada': number;
@@ -21,6 +23,7 @@ export type porpsAddSubstract = {
     total: number
 }
 
+// Tipo para la funcion que escribe los inputs
 export type ChangeInputs = {
     price: Price
     event: React.ChangeEvent<HTMLInputElement>,
@@ -30,11 +33,13 @@ export type ChangeInputs = {
     inputs: Inputs
 }
 
+//  Tipo para la funcion de creacion del mensaje 
 export type whattssapMessagesProps = {
     inputs: Inputs
     orderArray: string[] | undefined
 }
 
+//  Tipo para la funcion que valida el formulario
 export type validateErrorsProps = {
     input: Inputs
     setErrors: React.Dispatch<React.SetStateAction<errorsForm>>
