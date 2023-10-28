@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { images } from "../conts";
+import empanadas1 from "../images/empanadas1.jpg";
+import empanadas2 from "../images/empanadas2.jpg";
+import empanadas3 from "../images/empanadas3.jpg";
+import empanadas4 from "../images/empanadas4.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout>
@@ -8,10 +13,14 @@ import { images } from "../conts";
     <h1>Bienvenidos a Empanadas Parana</h1>
     <div>
       <!-- {images.map((image) => <img src={`${image}`} />)} -->
-      <img src="public/images/Empanadas1.jpeg" alt="Empanadas"/>
-      <img src="public/images/Empanadas2.jpeg" alt="Empanadas"/>
-      <img src="public/images/Empanadas3.jpeg" alt="Empanadas"/>
-      <img src="public/images/Empanadas4.jpeg" alt="Empanadas"/>
+      <!-- <img src="images/empanadas1.jpg" alt="Empanadas" />
+      <img src="images/empanadas2.jpg" alt="Empanadas" />
+      <img src="images/empanadas3.jpg" alt="Empanadas" />
+      <img src="images/empanadas4.jpg" alt="Empanadas" /> -->
+      <Image src={empanadas1} alt="Empanadas" />
+      <Image src={empanadas2} alt="Empanadas" />
+      <Image src={empanadas3} alt="Empanadas" />
+      <Image src={empanadas4} alt="Empanadas" />
     </div>
     <p>
       Soy Tania Nosetto y hace 10 años que vendo empanadas caseras desde mi
