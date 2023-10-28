@@ -51,6 +51,9 @@ export type whattssapMessagesProps = {
     orderArray: string[] | undefined
 }
 
+export type tittleMessage = string | undefined
+export type textMessage = string[] | undefined
+
 //  Tipo para la funcion que valida el formulario
 export type validateErrorsProps = {
     input: Inputs
