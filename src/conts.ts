@@ -14,26 +14,18 @@ export const empanadas: Empanadas[] = [
 export const priceDoc: number = 2500
 export const priceMed: number = 2500 / 2
 
-// Imagenes de las empandas
-const Empanadas1 = 'public/images/Empanadas1.jpeg'
-const Empanadas2 = 'public/images/Empanadas2.jpeg'
-const Empanadas3 = 'public/images/Empanadas3.jpeg'
-const Empanadas4 = 'public/images/Empanadas4.jpeg'
-
-export const images = [Empanadas1, Empanadas2, Empanadas3, Empanadas4]
-
 // Constantes para Card.tsx
 export const add = 'add'
 export const substract = 'substract'
 
 // Estado inicial del pedido de Empanadas.tsx
 export const initialOrder = {
-    'Carne salada': {doc: 0, half:0},
-    'Carne dulce': {doc: 0, half:0},
-    'Pollo': {doc: 0, half:0},
-    'Jamon y queso': {doc: 0, half:0},
-    'Cebolla y queso': {doc: 0, half:0},
-    'Verdura': {doc: 0, half:0}
+    'Carne salada': { doc: 0, half: 0 },
+    'Carne dulce': { doc: 0, half: 0 },
+    'Pollo': { doc: 0, half: 0 },
+    'Jamon y queso': { doc: 0, half: 0 },
+    'Cebolla y queso': { doc: 0, half: 0 },
+    'Verdura': { doc: 0, half: 0 }
 }
 
 // Estado incial del formulario de Form.tsx

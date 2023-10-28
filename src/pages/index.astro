@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { images } from "../conts";
-import empanadas1 from "../images/empanadas1.jpg";
-import empanadas2 from "../images/empanadas2.jpg";
-import empanadas3 from "../images/empanadas3.jpg";
-import empanadas4 from "../images/empanadas4.jpg";
+import empanadas1 from "../../public/images/empanadas1.jpg";
+import empanadas2 from "../../public/images/empanadas2.jpg";
+import empanadas3 from "../../public/images/empanadas3.jpg";
+import empanadas4 from "../../public/images/empanadas4.jpg";
 import { Image } from "astro:assets";
 ---
 
@@ -12,11 +11,6 @@ import { Image } from "astro:assets";
   <main>
     <h1>Bienvenidos a Empanadas Parana</h1>
     <div>
-      <!-- {images.map((image) => <img src={`${image}`} />)} -->
-      <!-- <img src="images/empanadas1.jpg" alt="Empanadas" />
-      <img src="images/empanadas2.jpg" alt="Empanadas" />
-      <img src="images/empanadas3.jpg" alt="Empanadas" />
-      <img src="images/empanadas4.jpg" alt="Empanadas" /> -->
       <Image src={empanadas1} alt="Empanadas" />
       <Image src={empanadas2} alt="Empanadas" />
       <Image src={empanadas3} alt="Empanadas" />
