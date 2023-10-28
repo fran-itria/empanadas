@@ -140,9 +140,15 @@ export function Form({ orderArray }: propsForm) {
             </ul>
             <p>Total: ${price ? price : <></>}</p>
             {Object.keys(errors).length > 0 ?
-                <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
+                <div>
+                    <a href='/pedir'> Back </a>
+                    <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
+                </div>
                 :
-                <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
+                <div>
+                    <a href='/pedir'> Back </a>
+                    <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
+                </div>
                 // <a onClick={() => whatssapMessage({ inputs, orderArray })}>Confirmar pedido</a>
             }
         </>
