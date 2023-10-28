@@ -121,11 +121,17 @@ export function Form({ orderArray }: propsForm) {
                         if (order.length > 0) {
                             const text = order.split("=");
                             const title = text[0];
-                            const amount: number = Number(text[1]);
-                            if (amount > 0 && title != 'price')
+                            const doc = Number(text[1].split(',')[0].replace('doc', ''))
+                            const half = text[1].split(',')[1]
+                            if (title != 'price')
                                 return (
                                     <li>
-                                        {title}: {amount > 1 ? `${amount} docenas` : `${amount} docena`}
+                                        {title}: {doc > 0 && Number(half.replace('med', '')) > 0 ?
+                                            `${doc} docenas y media` :
+                                            doc > 1 ? `${doc} docenas` :
+                                                doc == 1 ? `${doc} docena` :
+                                                    doc == 0 && Number(half.replace('med', '')) > 0 ? 'media docena'
+                                                        : <></>}
                                     </li>
                                 );
                         }
@@ -137,6 +143,7 @@ export function Form({ orderArray }: propsForm) {
                 <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
                 :
                 <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
+                // <a onClick={() => whatssapMessage({ inputs, orderArray })}>Confirmar pedido</a>
             }
         </>
     )
