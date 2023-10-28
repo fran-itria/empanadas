@@ -5,6 +5,7 @@ import { whatssapMessage } from '../../services/whattsapMessage';
 import { validateErrors } from '../../services/validateErrors';
 import { OrderArray } from './OrderArray';
 import { Form } from './Form';
+import style from "./ConfirmOrder.module.css";
 
 export function ConfirmOrder({ orderArray }: propsForm) {
     const [inputs, setInputs] = useState<Inputs>({
@@ -20,7 +21,7 @@ export function ConfirmOrder({ orderArray }: propsForm) {
     const price = Number(getPrice(orderArray))
     useEffect(() => { validateErrors({ input: inputs, setErrors, price }) }, [])
     return (
-        <>
+        <div className={style.containerConfirm}>
             <Form
                 inputs={inputs}
                 setInputs={setInputs}
@@ -39,6 +40,6 @@ export function ConfirmOrder({ orderArray }: propsForm) {
                     <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
                 }
             </div>
-        </>
+        </div>
     )
 }

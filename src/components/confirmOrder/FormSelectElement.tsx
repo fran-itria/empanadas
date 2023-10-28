@@ -6,13 +6,14 @@ export function FormSelectElement({ name, type, inputName, error, valueCheck, fu
     const { inputs, setInputs, price, errors, setErrors } = statesAndPrice
     return (
         <label className={style.label}>
-            {name}
+            {name}:
             <input
                 name={inputName}
                 checked={functionCheck ? functionCheck(valueCheck?.value1, inputs) : null}
                 type={type}
                 value={valueCheck?.value1}
                 onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
+                className={style.inputSelected}
             />
             {valueCheck?.value1}
             <input
@@ -21,6 +22,7 @@ export function FormSelectElement({ name, type, inputName, error, valueCheck, fu
                 type={type}
                 value={valueCheck?.value2}
                 onChange={(event) => changeInputs({ inputs, event, setInputs, price, errors, setErrors })}
+                className={style.inputSelected}
             />
             {valueCheck?.value2}
             {Object.keys(errors).length > 0 && error ? <strong>{error}</strong> : <></>}
