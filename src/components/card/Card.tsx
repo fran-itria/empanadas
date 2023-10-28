@@ -1,8 +1,8 @@
 // import { priceDoc, priceMed } from "../conts";
 import { useState } from "react";
 import style from "./Card.module.css"
-import type { propsCard } from "../types";
-import { addHalf, addTotal, substractHalf, substractTotal } from "../services/addSubstract";
+import type { propsCard } from "../../types";
+import { addHalf, addTotal, substractHalf, substractTotal } from "../../services/addSubstract";
 
 export function Card({ title, stock, setOrder, setPriceTotal }: propsCard) {
   const [total, setTotal] = useState<number>(0);

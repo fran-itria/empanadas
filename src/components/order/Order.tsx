@@ -1,7 +1,7 @@
-import { empanadas, initialOrder } from '../conts.ts'
-import { Card } from "./Card.tsx";
+import { empanadas, initialOrder } from '../../conts.ts'
+import { Card } from "../card/Card.tsx";
 import { useState } from "react";
-import { transformObjectToString } from "../services/transformObjectToString.ts";
+import { transformObjectToString } from "../../services/transformObjectToString.ts";
 import style from "./Order.module.css";
 
 export function Order() {

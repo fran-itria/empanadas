@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Form } from "../components/Form.tsx";
+import { ConfirmOrder } from "../components/confirmOrder/ConfirmOrder.tsx";
 const { order } = Astro.params;
 const orderArray = order?.split("-");
 ---
 
 <Layout>
-  <Form client:visible orderArray={orderArray} />
+  <ConfirmOrder client:visible orderArray={orderArray} />
 </Layout>

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import style from './Form.module.css'
-import { inputDelyveryValues, inputsNames, inputsPaymentValues } from "../conts";
-import type { Inputs, errorsForm, propsForm } from '../types';
-import { changeInputs } from '../services/changeInputs';
-import { getPrice } from '../services/getPrice';
-import { whatssapMessage } from '../services/whattsapMessage';
-import { validateErrors } from '../services/validateErrors';
-import { checkedDeliveryInput, checkedPaymentInput } from '../services/checkedInputs';
+import { inputDelyveryValues, inputsNames, inputsPaymentValues } from "../../conts";
+import type { Inputs, errorsForm, propsForm } from '../../types';
+import { changeInputs } from '../../services/changeInputs';
+import { getPrice } from '../../services/getPrice';
+import { whatssapMessage } from '../../services/whattsapMessage';
+import { validateErrors } from '../../services/validateErrors';
+import { checkedDeliveryInput, checkedPaymentInput } from '../../services/checkedInputs';
+import { OrderArray } from './OrderArray';
+import style from './ConfirmOrder.module.css'
 
-export function Form({ orderArray }: propsForm) {
+export function ConfirmOrder({ orderArray }: propsForm) {
     const [inputs, setInputs] = useState<Inputs>({
         name: '',
         surname: '',
@@ -115,29 +116,7 @@ export function Form({ orderArray }: propsForm) {
                 </label>
             </form>
             <p>Pedido:</p>
-            <ul>
-                {
-                    orderArray?.map((order) => {
-                        if (order.length > 0) {
-                            const text = order.split("=");
-                            const title = text[0];
-                            const doc = Number(text[1].split(',')[0].replace('doc', ''))
-                            const half = text[1].split(',')[1]
-                            if (title != 'price')
-                                return (
-                                    <li>
-                                        {title}: {doc > 0 && Number(half.replace('med', '')) > 0 ?
-                                            `${doc} docenas y media` :
-                                            doc > 1 ? `${doc} docenas` :
-                                                doc == 1 ? `${doc} docena` :
-                                                    doc == 0 && Number(half.replace('med', '')) > 0 ? 'media docena'
-                                                        : <></>}
-                                    </li>
-                                );
-                        }
-                    })
-                }
-            </ul>
+            <OrderArray orderArray={orderArray} />
             <p>Total: ${price ? price : <></>}</p>
             {Object.keys(errors).length > 0 ?
                 <div>
@@ -149,7 +128,6 @@ export function Form({ orderArray }: propsForm) {
                     <a href='/pedir'> Back </a>
                     <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
                 </div>
-                // <a onClick={() => whatssapMessage({ inputs, orderArray })}>Confirmar pedido</a>
             }
         </>
     )
