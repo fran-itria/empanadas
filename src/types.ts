@@ -1,8 +1,7 @@
 // Tipo para el arreglo de empanadas en const.tsx
 export type Empanadas = {
     title: titleKey,
-    stock: boolean,
-    option?: string
+    stock: boolean
 }
 
 // Tipo para las props de Card.tsx
@@ -38,7 +37,6 @@ export type titleKey = "Carne salada" | "Carne dulce" | "Pollo" | "Jamon y queso
 export type propsCard = {
     title: titleKey;
     stock: boolean;
-    option?: string;
     setOrder: SetOrder
     setPriceTotal: React.Dispatch<React.SetStateAction<number>>
 };
@@ -57,6 +55,29 @@ export type Inputs = {
     time: string
 }
 export type Price = number
+
+// Tipo para el formulario 
+
+export type Form = {
+    inputs: Inputs
+    setInputs: React.Dispatch<React.SetStateAction<Inputs>>
+    errors: errorsForm
+    setErrors: React.Dispatch<React.SetStateAction<errorsForm>>
+    price: number
+}
+// Tipo para los elementos del formulario
+export type formElements = {
+    name: string
+    type: string
+    statesAndPrice: Form
+    inputName: string
+    error: string | undefined
+    functionCheck?: Function
+    valueCheck?: {
+        value1: string
+        value2: string
+    }
+}
 
 // Tipo para los errores del fomrulario en Form.tsx
 export type errorsForm = {
