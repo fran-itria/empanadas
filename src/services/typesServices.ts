@@ -6,6 +6,10 @@ export type propsTransformObject = {
     setOrderTextParam: React.Dispatch<React.SetStateAction<string>>
     priceTotal: number
 }
+export type Value = {
+    doc: string
+    half: string
+}
 
 // Tipo para las funciones de sumar y restar la cantidad de docenas a pedir
 export type basicProps = {
