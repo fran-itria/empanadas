@@ -2,6 +2,7 @@ import { empanadas, initialOrder } from '../conts.ts'
 import { Card } from "./Card.tsx";
 import { useState } from "react";
 import { transformObjectToString } from "../services/transformObjectToString.ts";
+import style from "./Order.module.css";
 
 export function Order() {
     const [order, setOrder] = useState(initialOrder)
@@ -22,13 +23,15 @@ export function Order() {
                     );
                 })
             }
-            <a
-                href={`/confirm-order-${orderTextParam}`}
-                onClick={() => transformObjectToString({ order, setOrderTextParam, priceTotal })}
-                style={{ width: '200px' }}
-            >
-                Confirmar
-            </a >
+            <div className={style.confirm}>
+                <a
+                    href={`/confirm-order-${orderTextParam}`}
+                    onClick={() => transformObjectToString({ order, setOrderTextParam, priceTotal })}
+                    style={{ width: '200px' }}
+                >
+                    Confirmar
+                </a >
+            </div>
         </>
     )
 }

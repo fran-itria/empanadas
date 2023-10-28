@@ -1,0 +1,7 @@
+.confirm{
+    width: 780px;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 90px;
+    margin-top: 20px;
+}
