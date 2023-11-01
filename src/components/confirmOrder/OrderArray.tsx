@@ -1,4 +1,5 @@
 import type { propsForm } from "../../types";
+import './OrderArray.module.css'
 
 
 export function OrderArray({ orderArray }: propsForm) {

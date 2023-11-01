@@ -29,15 +29,15 @@ export function ConfirmOrder({ orderArray }: propsForm) {
                 setErrors={setErrors}
                 price={price}
             />
-            <p>Pedido:</p>
+            <p className={style.orderText}>Pedido:</p>
             <OrderArray orderArray={orderArray} />
             <p>Total: ${price ? price : <></>}</p>
-            <div>
+            <div className={style.buttons}>
                 <a href='/pedir'> Back </a>
                 {Object.keys(errors).length > 0 ?
                     <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
                     :
-                    <a href={`https://wa.me/3434403870/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
+                    <a href={`https://wa.me/3435023925/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
                 }
             </div>
         </div>

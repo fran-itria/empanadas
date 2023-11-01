@@ -16,7 +16,6 @@ export function Order() {
                         <Card
                             title={empanada.title}
                             stock={empanada.stock}
-                            option={empanada.option}
                             setOrder={setOrder}
                             setPriceTotal={setPriceTotal}
                         />

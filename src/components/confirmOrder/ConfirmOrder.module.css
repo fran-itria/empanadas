@@ -1,3 +1,4 @@
+/* CONTENEDER DEL FORMULARIO */
 .containerConfirm {
   width: 99vw;
   display: flex;
@@ -5,47 +6,17 @@
   align-items: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border: solid black 2px;
+/* TEXTO PEDIDO */
+.orderText{
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* BOTONES */
+.buttons{
   width: 35vw;
-  height: 60vh;
-  background-color: white;
-}
-
-.label {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-.input {
-  margin-left: 10px;
-  border: black solid 2px;
-  font-size: 15px;
-  font-weight: bold;
-  /* border-radius: 10px; */
-}
-
-.input:focus {
-  border: solid black 1px;
-  background-color: rgb(216, 216, 216);
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.inputSelected {
-  margin-left: 15px;
-}
-
-.inputSelected:checked {
-  background: greenyellow;
-  color: black;
-}
-
-strong{
-  color: red;
-  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

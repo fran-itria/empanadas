@@ -1,7 +1,7 @@
 import type { Form } from "../../types";
 import { FormElement } from "./FormElement";
 import { FormSelectElement } from "./FormSelectElement";
-import style from "./ConfirmOrder.module.css";
+import style from "./Form.module.css";
 import { inputDelyveryValues, inputsNames, inputsPaymentValues } from "../../conts";
 import { checkedDeliveryInput, checkedPaymentInput } from "../../services/checkedInputs";
 
