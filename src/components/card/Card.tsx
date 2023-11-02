@@ -38,7 +38,7 @@ export function Card({ title, stock, setOrder, setPriceTotal }: propsCard) {
         <p className={style.total}>{half}</p>
         <button
           onClick={() => addHalf({ basic: { setOrder, setPriceTotal, title }, half, setHalf })}
-          className={style.button}>
+          className={half == 0 ? style.button : style.disbled}>
           +
         </button>
       </div>

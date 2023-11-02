@@ -18,9 +18,11 @@ export const substractTotal = ({ basic, total, setTotal }: propsAddSubstractTota
 
 export const addHalf = ({ basic, half, setHalf }: propsAddSubstractHalf) => {
     const { setOrder, setPriceTotal, title } = basic
-    setHalf((total: number) => total + 1);
-    setOrder(order => { return { ...order, [title]: { ...order[title], half: half + 1 } } })
-    setPriceTotal(price => price += priceMed)
+    if (half < 1) {
+        setHalf((total: number) => total + 1);
+        setOrder(order => { return { ...order, [title]: { ...order[title], half: half + 1 } } })
+        setPriceTotal(price => price += priceMed)
+    }
 }
 
 export const substractHalf = ({ basic, half, setHalf }: propsAddSubstractHalf) => {
