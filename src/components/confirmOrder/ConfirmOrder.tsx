@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { Inputs, errorsForm, propsForm } from '../../types';
+import type { Inputs, errorsForm, propsConfirmOrder } from '../../types';
 import { getPrice } from '../../services/getPrice';
 import { whatssapMessage } from '../../services/whattsapMessage';
 import { validateErrors } from '../../services/validateErrors';
@@ -7,14 +7,14 @@ import { OrderArray } from './OrderArray';
 import { Form } from './Form';
 import style from "./ConfirmOrder.module.css";
 
-export function ConfirmOrder({ orderArray }: propsForm) {
+export function ConfirmOrder({ orderArray }: propsConfirmOrder) {
     const [inputs, setInputs] = useState<Inputs>({
         name: '',
         surname: '',
         delivery: '',
         direction: '',
         payment: '',
-        cash: '0',
+        cash: '',
         time: ''
     })
     const [errors, setErrors] = useState<errorsForm>({})

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import style from "./Card.module.css"
 import type { propsCard } from "../../types";
-import { addHalf, addTotal, substractHalf, substractTotal } from "../../services/addSubstract";
+import { addDoc, addHalf, substractDoc, substractHalf } from "../../services/addSubstract";
 
 export function Card({ title, stock, setOrder, setPriceTotal }: propsCard) {
   const [total, setTotal] = useState<number>(0);
@@ -17,13 +17,13 @@ export function Card({ title, stock, setOrder, setPriceTotal }: propsCard) {
       <div className={style.doc}>
         <p className={style.text}>Docenas:</p>
         <button
-          onClick={() => substractTotal({ basic: { setOrder, setPriceTotal, title }, total, setTotal })}
+          onClick={() => substractDoc({ basic: { setOrder, setPriceTotal, title }, total, setTotal })}
           className={total > 0 ? style.button : style.disbled}>
           -
         </button>
         <p className={style.total}>{total}</p>
         <button
-          onClick={() => addTotal({ basic: { setOrder, setPriceTotal, title }, total, setTotal })}
+          onClick={() => addDoc({ basic: { setOrder, setPriceTotal, title }, total, setTotal })}
           className={style.button}>
           +
         </button>
