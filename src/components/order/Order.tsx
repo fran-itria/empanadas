@@ -3,9 +3,10 @@ import { Card } from "../card/Card.tsx";
 import { useState } from "react";
 import { transformObjectToString } from "../../services/transformObjectToString.ts";
 import style from "./Order.module.css";
+import type { InitialOrder } from '../../services/typesServices.ts';
 
 export function Order() {
-    const [order, setOrder] = useState(initialOrder)
+    const [order, setOrder] = useState<InitialOrder>(initialOrder)
     const [priceTotal, setPriceTotal] = useState<number>(0)
     const [orderTextParam, setOrderTextParam] = useState<string>('')
     return (
