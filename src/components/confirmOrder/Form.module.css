@@ -57,7 +57,7 @@ strong {
 
 @media (max-width: 425px) {
     form {
-        width: 70vw;
+        width: 55vw;
     }
 
     .label {
@@ -74,6 +74,7 @@ strong {
     .selectLabel {
         display: flex;
         flex-direction: row;
+        font-size: 13px;
     }
 
     .input {

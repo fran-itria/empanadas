@@ -33,7 +33,7 @@ export function ConfirmOrder({ orderArray }: propsForm) {
             <OrderArray orderArray={orderArray} />
             <p className={style.total}>Total: ${price ? price : <></>}</p>
             <div className={style.buttons}>
-                <a href='/pedir'> Back </a>
+                <a href='/pedir'> Volver </a>
                 {Object.keys(errors).length > 0 ?
                     <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
                     :
