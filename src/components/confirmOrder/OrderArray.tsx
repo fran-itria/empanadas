@@ -16,12 +16,14 @@ export function OrderArray({ orderArray }: propsForm) {
                         if (title != 'price')
                             return (
                                 <li>
-                                    {title}: {doc > 0 && Number(half.replace('med', '')) > 0 ?
-                                        `${doc} docenas y media` :
-                                        doc > 1 ? `${doc} docenas` :
-                                            doc == 1 ? `${doc} docena` :
-                                                doc == 0 && Number(half.replace('med', '')) > 0 ? 'media docena'
-                                                    : <></>}
+                                    {title}: {doc == 1 && Number(half.replace('med', '')) > 0 ?
+                                        `${doc} docena y media` :
+                                        doc > 1 && Number(half.replace('med', '')) > 0 ?
+                                            `${doc} docenas y media` :
+                                            doc > 1 ? `${doc} docenas` :
+                                                doc == 1 ? `${doc} docena` :
+                                                    doc == 0 && Number(half.replace('med', '')) > 0 ? 'media docena'
+                                                        : <></>}
                                 </li>
                             );
                     }
