@@ -4,7 +4,7 @@ import type { Empanadas } from "./types"
 export const empanadas: Empanadas[] = [
     { title: 'Carne salada', stock: true },
     { title: 'Carne dulce', stock: true },
-    { title: 'Pollo', stock: false },
+    { title: 'Pollo', stock: true },
     { title: 'Jamon y queso', stock: true },
     { title: 'Cebolla y queso', stock: true },
     { title: 'Verdura', stock: true },
