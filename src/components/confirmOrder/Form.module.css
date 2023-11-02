@@ -77,10 +77,18 @@ strong {
         font-size: 13px;
     }
 
+    .inputSelected{
+        margin: 1px 4px 0px 5px;
+    }
     .input {
         margin-left: 0px;
+        height: 13px;
+        font-size: 13px;
     }
-
+    .input:focus{
+        font-size: 13px;
+        height: 13px;
+    }
     strong {
         margin: 0;
         margin-top: 5px;
