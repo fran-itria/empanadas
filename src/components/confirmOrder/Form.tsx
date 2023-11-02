@@ -2,7 +2,7 @@ import type { Form } from "../../types";
 import { FormElement } from "./FormElement";
 import { FormSelectElement } from "./FormSelectElement";
 import style from "./Form.module.css";
-import { inputDelyveryValues, inputsNames, inputsPaymentValues } from "../../conts";
+import { inputDelyveryValues, inputsNames, inputsPaymentValues, labelName } from "../../conts";
 import { checkedDeliveryInput, checkedPaymentInput } from "../../services/checkedInputs";
 
 
@@ -10,21 +10,21 @@ export function Form({ inputs, setInputs, price, errors, setErrors }: Form) {
     return (
         <form className={style.form}>
             <FormElement
-                name={'Nombre'}
+                name={labelName.name}
                 type={'text'}
                 inputName={inputsNames.name}
                 error={errors.name}
                 statesAndPrice={{ inputs, setInputs, errors, setErrors, price }}
             />
             <FormElement
-                name={'Apellido'}
+                name={labelName.surname}
                 type={'text'}
                 inputName={inputsNames.surname}
                 error={errors.surname}
                 statesAndPrice={{ inputs, setInputs, errors, setErrors, price }}
             />
             <FormSelectElement
-                name={'Entrega'}
+                name={labelName.delivery}
                 type={'checkbox'}
                 inputName={inputsNames.delivery}
                 error={errors.delivery}
@@ -34,7 +34,7 @@ export function Form({ inputs, setInputs, price, errors, setErrors }: Form) {
             />
             {inputs.delivery == inputDelyveryValues.home ?
                 <FormElement
-                    name={'Direccion'}
+                    name={labelName.direction}
                     type={'text'}
                     inputName={inputsNames.direction}
                     error={errors.direction}
@@ -44,7 +44,7 @@ export function Form({ inputs, setInputs, price, errors, setErrors }: Form) {
                 <></>
             }
             <FormSelectElement
-                name={'Pago'}
+                name={labelName.payment}
                 type={'checkbox'}
                 inputName={inputsNames.payment}
                 error={errors.payment}
@@ -55,7 +55,7 @@ export function Form({ inputs, setInputs, price, errors, setErrors }: Form) {
             />
             {inputs.payment == inputsPaymentValues.efective ?
                 <FormElement
-                    name={'Monto a pagar'}
+                    name={labelName.cash}
                     type={'number'}
                     inputName={inputsNames.cash}
                     error={errors.cash}
@@ -66,7 +66,7 @@ export function Form({ inputs, setInputs, price, errors, setErrors }: Form) {
                 <></>
             }
             <FormElement
-                name={'Horario'}
+                name={labelName.time}
                 type={'time'}
                 inputName={inputsNames.time}
                 error={errors.time}
