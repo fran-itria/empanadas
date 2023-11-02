@@ -12,7 +12,7 @@ export const empanadas: Empanadas[] = [
 
 // Precio por docena o 1/2 docena
 export const priceDoc: number = 2500
-export const priceMed: number = 2500 / 2
+export const priceMed: number = priceDoc / 2
 
 // Constantes para Card.tsx
 export const add = 'add'
@@ -28,7 +28,7 @@ export const initialOrder = {
     'Verdura': { doc: 0, half: 0 }
 }
 
-// Estado incial del formulario de Form.tsx
+// Nombres de los inputs del formulario de Form.tsx
 export const inputsNames = {
     name: 'name',
     surname: 'surname',
@@ -39,6 +39,15 @@ export const inputsNames = {
     time: 'time'
 }
 
+export const labelName = {
+    name: 'Nombre',
+    surname: 'Apellido',
+    delivery: 'Entrega',
+    direction: 'Dirección',
+    payment: 'Pago',
+    cash: 'Monto',
+    time: 'Horario'
+}
 // Valores de los inputs de la forma de entrega
 export const inputDelyveryValues = {
     home: 'A domicilio',

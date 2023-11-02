@@ -42,7 +42,7 @@ export type propsCard = {
 };
 
 // Tipo para el estado del formulario en Form.tsx
-export type propsForm = {
+export type propsConfirmOrder = {
     orderArray: string[] | undefined
 }
 export type Inputs = {
@@ -51,7 +51,7 @@ export type Inputs = {
     delivery: string
     direction?: string
     payment: string
-    cash: string
+    cash?: string
     time: string
 }
 export type Price = number

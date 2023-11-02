@@ -1,8 +1,17 @@
 import type { Inputs, Price, SetOrder, errorsForm, titleKey } from "../types";
 
 // Tipo para la funcion de transformar el objeto a string 
+export type InitialOrder = {
+    'Carne salada': {doc: number, half: number}
+    'Carne dulce': {doc: number, half: number}
+    'Pollo': {doc: number, half: number}
+    'Jamon y queso': {doc: number, half: number}
+    'Cebolla y queso': {doc: number, half: number}
+    'Verdura': {doc: number, half: number}
+}
+
 export type propsTransformObject = {
-    order: any,
+    order: InitialOrder,
     setOrderTextParam: React.Dispatch<React.SetStateAction<string>>
     priceTotal: number
 }
