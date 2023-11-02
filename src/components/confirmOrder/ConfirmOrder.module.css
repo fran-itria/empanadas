@@ -7,16 +7,26 @@
 }
 
 /* TEXTO PEDIDO */
-.orderText{
+.orderText {
   margin: 0;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
 /* BOTONES */
-.buttons{
+.buttons {
   width: 35vw;
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+@media (max-width: 425px) {
+  .buttons {
+    width: 65vw;
+  }
+
+  .total {
+    margin: 10px;
+  }
 }

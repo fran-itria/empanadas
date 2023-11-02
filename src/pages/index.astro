@@ -16,14 +16,14 @@ import { Image } from "astro:assets";
       <Image src={empanadas3} alt="Empanadas" />
       <Image src={empanadas4} alt="Empanadas" />
     </div>
-    <p>
+    <p class="firstP">
       Soy Tania Nosetto y hace 10 años que vendo empanadas caseras desde mi
       casa, las variedades que tenemos disponibles son:
       <b>
         Carne salada y dulces, Pollo, Verdura, Jamon y Queso, Cebolla y queso.
       </b>
     </p>
-    <p>En ocasiones especiales, realizo pedidos de <b> Pescado.</b></p>
+    <p class="lastP">En ocasiones especiales, realizo pedidos de <b> Pescado.</b></p>
     <a href="/pedir" class="btn btn-white btn-sm">Pedir</a>
   </main>
 </Layout>
@@ -111,13 +111,33 @@ import { Image } from "astro:assets";
     font-weight: bold;
     text-align: center;
   }
-  p:first-child {
-    margin-top: 20px;
+  .firstP{
+    margin: 20px;
   }
-  p:last-child {
+  .lastP{
     margin: 0;
+    margin-bottom: 20px;
   }
   b {
     color: rgb(179, 0, 0);
+  }
+
+  @media (max-width: 425px) {
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      width: 425px;
+      justify-content: center;
+      gap: 10px;
+    }
+    img {
+      width: 150px;
+      height: 150px;
+      margin: 0;
+    }
+    p {
+      font-size: 20px;
+      margin-top: 20px;
+    }
   }
 </style>

@@ -1,6 +1,6 @@
 import { changeInputs } from "../../services/changeInputs";
 import type { formElements } from "../../types";
-import style from './ConfirmOrder.module.css'
+import style from './Form.module.css'
 
 export function FormElement({ name, type, inputName, error, statesAndPrice }: formElements) {
     const { inputs, setInputs, price, errors, setErrors } = statesAndPrice

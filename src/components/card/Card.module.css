@@ -135,3 +135,42 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+@media (max-width: 425px) {
+    .card {
+        width: 150px;
+        height: 150px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .notStock {
+        width: 150px;
+        height: 150px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .notStockText {
+        width: 172px;
+        rotate: -44deg;
+    }
+
+    .box {
+        width: 14px;
+        height: 17px;
+    }
+
+    .box2 {
+        width: 15px;
+        height: 18px;
+    }
+}

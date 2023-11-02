@@ -31,7 +31,7 @@ export function ConfirmOrder({ orderArray }: propsForm) {
             />
             <p className={style.orderText}>Pedido:</p>
             <OrderArray orderArray={orderArray} />
-            <p>Total: ${price ? price : <></>}</p>
+            <p className={style.total}>Total: ${price ? price : <></>}</p>
             <div className={style.buttons}>
                 <a href='/pedir'> Back </a>
                 {Object.keys(errors).length > 0 ?

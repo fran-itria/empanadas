@@ -5,3 +5,11 @@
     margin-left: 90px;
     margin-top: 20px;
 }
+
+@media (max-width: 425px){
+    .confirm{
+        justify-content: center;
+        width: 425px;
+        margin-left: 0px;
+    }
+}
