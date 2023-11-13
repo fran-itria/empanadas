@@ -1,15 +1,70 @@
-.confirm{
+.confirm {
     width: 780px;
     display: flex;
     justify-content: flex-end;
     margin-left: 90px;
     margin-top: 20px;
 }
+.buttonConfirm {
+    width: 200px;
+}
+.notButtonConfirm{
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+    width: 200px;
+}
 
-@media (max-width: 425px){
-    .confirm{
+@media (max-width: 1440px) {
+    .confirm {
+        justify-content: end;
+        width: 700px;
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+
+    .buttonConfirm {
+        width: 220px;
+    }
+
+    .notButtonConfirm{
+        width: 220px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .confirm {
+        justify-content: end;
+        width: 700px;
+        margin-left: 0px;
+        margin-right: 50px;
+    }
+
+    .buttonConfirm {
+        width: 190px;
+    }
+
+    .notButtonConfirm{
+        width: 190px;
+    }
+}
+
+@media (max-width: 425px) {
+    .confirm {
         justify-content: center;
         width: 425px;
         margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .confirm {
+        justify-content: center;
+        width: 320px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 10px;
     }
 }

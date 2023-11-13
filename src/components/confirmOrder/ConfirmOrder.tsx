@@ -35,7 +35,7 @@ export function ConfirmOrder({ orderArray }: propsConfirmOrder) {
             <div className={style.buttons}>
                 <a href='/pedir'> Volver </a>
                 {Object.keys(errors).length > 0 ?
-                    <a style={{ pointerEvents: 'none', cursor: 'not-allowed', opacity: '0.5' }}>Confirmar pedido</a>
+                    <a className={style.notConfirm}>Confirmar pedido</a>
                     :
                     <a href={`https://wa.me/3435023925/?text=${whatssapMessage({ inputs, orderArray })}`} target='_blank'>Confirmar pedido</a>
                 }

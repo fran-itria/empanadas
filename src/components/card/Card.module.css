@@ -136,17 +136,17 @@
     cursor: not-allowed;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1440px) {
     .card {
-        width: 150px;
-        height: 150px;
+        width: 220px;
+        height: 140px;
         margin-left: 0px;
         margin-top: 0px;
     }
 
     .notStock {
-        width: 150px;
-        height: 150px;
+        width: 220px;
+        height: 140px;
         margin-left: 0px;
         margin-top: 0px;
     }
@@ -172,5 +172,81 @@
     .box2 {
         width: 15px;
         height: 18px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .card {
+        width: 190px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 425px) {
+    .card {
+        width: 150px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+}
+
+@media(max-width: 375px) {
+    .card {
+        width: 140px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .notStock {
+        width: 140px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .doc {
+        width: 140px;
+    }
+
+    .midle {
+        width: 100px;
+    }
+}
+
+@media (max-width: 320px) {
+    .card {
+        width: 145px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .notStock {
+        width: 145px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .doc {
+        width: 145px;
+    }
+
+    .midle {
+        width: 100px;
+    }
+
+    .notStockText {
+        width: 172px;
+        rotate: -44deg;
+    }
+
+    .title {
+        font-size: 18px;
+        width: 145px;
     }
 }

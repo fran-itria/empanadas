@@ -23,7 +23,9 @@ import { Image } from "astro:assets";
         Carne salada y dulces, Pollo, Verdura, Jamon y Queso, Cebolla y queso.
       </b>
     </p>
-    <p class="lastP">En ocasiones especiales, realizo pedidos de <b> Pescado.</b></p>
+    <p class="lastP">
+      En ocasiones especiales, realizo pedidos de <b> Pescado.</b>
+    </p>
     <a href="/pedir" class="btn btn-white btn-sm">Pedir</a>
   </main>
 </Layout>
@@ -111,10 +113,10 @@ import { Image } from "astro:assets";
     font-weight: bold;
     text-align: center;
   }
-  .firstP{
+  .firstP {
     margin: 20px;
   }
-  .lastP{
+  .lastP {
     margin: 0;
     margin-bottom: 20px;
   }
@@ -122,7 +124,43 @@ import { Image } from "astro:assets";
     color: rgb(179, 0, 0);
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 320px) {
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      width: 320px;
+      justify-content: center;
+      gap: 10px;
+    }
+    img {
+      width: 135px;
+      height: 150px;
+      margin: 0;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  }
+  @media (min-width: 321px) and (max-width: 375px) {
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      width: 370px;
+      justify-content: center;
+      gap: 10px;
+    }
+    img {
+      width: 150px;
+      height: 150px;
+      margin: 0;
+    }
+    p {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  }
+  @media (min-width: 376px) and (max-width: 425px) {
     div {
       display: flex;
       flex-wrap: wrap;
@@ -134,6 +172,27 @@ import { Image } from "astro:assets";
       width: 150px;
       height: 150px;
       margin: 0;
+    }
+    p {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100vw;
+      justify-content: center;
+      gap: 10px;
+    }
+    img {
+      width: 180px;
+      height: 180px;
+      margin: 0;
+    }
+    .firstP {
+      margin: 50px;
     }
     p {
       font-size: 20px;

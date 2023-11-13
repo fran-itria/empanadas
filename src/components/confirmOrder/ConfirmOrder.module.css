@@ -21,14 +21,30 @@
   gap: 20px;
 }
 
-@media (max-width: 425px) {
+.notConfirm {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 320px) {
+  a {
+    font-size: 14px;
+  }
+}
+
+@media (min-width:321px) and (max-width: 425px) {
+  a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
   .buttons {
-    width: 55vw;
+    width: 70vw;
   }
-  a{
-    font-size: 15px;
-  }
+
   .total {
-    margin: 10px;
+    margin: 30px;
   }
 }

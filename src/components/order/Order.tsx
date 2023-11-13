@@ -29,18 +29,12 @@ export function Order() {
                         <a
                             href={`/confirm-order-${orderTextParam}`}
                             onClick={() => transformObjectToString({ order, setOrderTextParam, priceTotal })}
-                            style={{ width: '200px' }}
+                            className={style.buttonConfirm}
                         >
                             Confirmar
                         </a >
                         :
-                        <a style={{
-                            pointerEvents: 'none',
-                            cursor: 'not-allowed',
-                            opacity: '0.5',
-                            width: '200px'
-                        }}
-                        >
+                        <a className={style.notButtonConfirm}>
                             Confirmar
                         </a>
                 }
