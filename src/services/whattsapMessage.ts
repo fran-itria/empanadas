@@ -22,7 +22,7 @@ export const whatssapMessage = ({ inputs, orderArray }: whattssapMessagesProps) 
             `${doc} docenas y media` :
             doc > 1 ? `${doc} docenas` :
                 doc == 1 ? `${doc} docena` :
-                    doc == 0 && med == 1 ? 'media docena' :
+                    doc == 0 && med == 1 ? '1/2 docena' :
                         ''}${line}`
         // Mensaje solo cuando se trata de docenas  
         // const number = order?.split('=')[1]
