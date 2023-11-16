@@ -1,9 +1,8 @@
-import type { propsForm } from "../../types";
+import type { propsConfirmOrder } from "../../types";
 import './OrderArray.module.css'
 
 
-export function OrderArray({ orderArray }: propsForm) {
-
+export function OrderArray({ orderArray }: propsConfirmOrder) {
     return (
         <ul>
             {
@@ -11,21 +10,22 @@ export function OrderArray({ orderArray }: propsForm) {
                     if (order.length > 0) {
                         const text = order.split("=");
                         const title = text[0];
-                        const doc = Number(text[1].split(',')[0].replace('doc', ''))
-                        const half = text[1].split(',')[1]
-                        if (title != 'price')
+                        if (title != 'price') {
+                            const doc = Number(text[1].split(',')[0].replace('doc', ''))
+                            const half = Number(text[1].split(',')[1].replace('med', ''))
                             return (
                                 <li>
-                                    {title}: {doc == 1 && Number(half.replace('med', '')) > 0 ?
+                                    {title}: {doc == 1 && half > 0 ?
                                         `${doc} docena y media` :
-                                        doc > 1 && Number(half.replace('med', '')) > 0 ?
+                                        doc > 1 && half > 0 ?
                                             `${doc} docenas y media` :
                                             doc > 1 ? `${doc} docenas` :
                                                 doc == 1 ? `${doc} docena` :
-                                                    doc == 0 && Number(half.replace('med', '')) > 0 ? 'media docena'
+                                                    doc == 0 && half > 0 ? '1/2 docena'
                                                         : <></>}
                                 </li>
                             );
+                        }
                     }
                 })
             }

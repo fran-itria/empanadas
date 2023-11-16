@@ -1,3 +1,5 @@
+export type titleKey = "Carne salada" | "Carne dulce" | "Pollo" | "Jamon y queso" | "Cebolla y queso" | "Verdura"
+
 // Tipo para el arreglo de empanadas en const.tsx
 export type Empanadas = {
     title: titleKey,
@@ -32,8 +34,6 @@ export type SetOrder = React.Dispatch<React.SetStateAction<{
     };
 }>>
 
-export type titleKey = "Carne salada" | "Carne dulce" | "Pollo" | "Jamon y queso" | "Cebolla y queso" | "Verdura"
-
 export type propsCard = {
     title: titleKey;
     stock: boolean;
@@ -41,10 +41,12 @@ export type propsCard = {
     setPriceTotal: React.Dispatch<React.SetStateAction<number>>
 };
 
-// Tipo para el estado del formulario en Form.tsx
+// Tipo para el parametro del componente ConfirmOrder y OrderArray
 export type propsConfirmOrder = {
     orderArray: string[] | undefined
 }
+
+// Tipo para el estado del formulario en Form.tsx
 export type Inputs = {
     name: string
     surname: string
@@ -57,7 +59,6 @@ export type Inputs = {
 export type Price = number
 
 // Tipo para el formulario 
-
 export type Form = {
     inputs: Inputs
     setInputs: React.Dispatch<React.SetStateAction<Inputs>>
@@ -65,6 +66,7 @@ export type Form = {
     setErrors: React.Dispatch<React.SetStateAction<errorsForm>>
     price: number
 }
+
 // Tipo para los elementos del formulario
 export type formElements = {
     name: string
