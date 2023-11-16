@@ -151,6 +151,21 @@
         margin-top: 0px;
     }
 
+    .notStockText {
+        width: 225px;
+        rotate: 331deg;
+    }
+
+    .box {
+        width: 10px;
+        height: 18px;
+    }
+
+    .box2 {
+        width: 10px;
+        height: 18px;
+    }
+
     .title {
         font-size: 18px;
     }
@@ -159,20 +174,6 @@
         font-size: 18px;
     }
 
-    .notStockText {
-        width: 172px;
-        rotate: -44deg;
-    }
-
-    .box {
-        width: 14px;
-        height: 17px;
-    }
-
-    .box2 {
-        width: 15px;
-        height: 18px;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -182,6 +183,28 @@
         margin-left: 0px;
         margin-top: 0px;
     }
+
+    .notStock {
+        width: 190px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .notStockText {
+        width: 186px;
+        rotate: 335deg;
+    }
+
+    .box {
+        width: 9px;
+        height: 19px;
+    }
+
+    .box2 {
+        width: 11px;
+        height: 19px;
+    }
 }
 
 @media (max-width: 425px) {
@@ -190,6 +213,26 @@
         height: 110px;
         margin-left: 0px;
         margin-top: 0px;
+    }
+
+    .notStock {
+        width: 150px;
+        height: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .notStockText {
+        width: 150px;
+        rotate: 328deg;
+    }
+
+    .box {
+        width: 11px;
+    }
+
+    .box2 {
+        width: 11px;
     }
 }
 
@@ -206,6 +249,21 @@
         height: 110px;
         margin-left: 0px;
         margin-top: 0px;
+    }
+
+    .notStockText {
+        width: 140px;
+        rotate: 325deg;
+    }
+
+    .box {
+        width: 13px;
+        height: 17px;
+    }
+
+    .box2 {
+        width: 12px;
+        height: 18px;
     }
 
     .doc {
@@ -232,17 +290,25 @@
         margin-top: 0px;
     }
 
+    .notStockText {
+        width: 145px;
+        rotate: 327deg;
+    }
+
+    .box {
+        width: 11px;
+    }
+
+    .box2 {
+        width: 11px;
+    }
+
     .doc {
         width: 145px;
     }
 
     .midle {
         width: 100px;
-    }
-
-    .notStockText {
-        width: 172px;
-        rotate: -44deg;
     }
 
     .title {
